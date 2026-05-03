@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>루비 키위 — 자연이 빚은 루비</title>
+  <title>Ruby Kiwi — Nature's Finest Ruby</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Noto+Serif+KR:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
     :root {
       --ruby:    #9B1C1C;
@@ -21,11 +21,10 @@
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'Noto Serif KR', serif;
+      font-family: 'Jost', sans-serif;
       background: var(--cream);
       color: var(--text);
       overflow-x: hidden;
@@ -45,7 +44,7 @@
       border-bottom: 1px solid rgba(155, 28, 28, 0.12);
       transition: box-shadow .3s;
     }
-    nav.scrolled { box-shadow: 0 4px 30px rgba(100, 30, 22, 0.12); }
+    nav.scrolled { box-shadow: 0 4px 30px rgba(100,30,22,0.12); }
 
     .logo {
       font-family: 'Cormorant Garamond', serif;
@@ -57,26 +56,18 @@
     }
     .logo span { color: var(--gold); }
 
-    .nav-links {
-      display: flex;
-      gap: 2.5rem;
-      list-style: none;
-    }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
     .nav-links a {
       text-decoration: none;
-      font-size: 0.85rem;
-      letter-spacing: 0.12em;
+      font-size: 0.82rem;
+      letter-spacing: 0.14em;
       color: var(--muted);
       transition: color .25s;
       font-weight: 300;
+      text-transform: uppercase;
     }
     .nav-links a:hover { color: var(--ruby); }
 
-    .nav-right {
-      display: flex;
-      align-items: center;
-      gap: 1.2rem;
-    }
     .lang-btn {
       font-size: 0.75rem;
       letter-spacing: 0.1em;
@@ -89,6 +80,16 @@
     }
     .lang-btn:hover { color: var(--ruby); border-color: var(--ruby); }
 
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--ruby-dk); }
+
     /* ── HERO ── */
     #home {
       min-height: 100vh;
@@ -99,7 +100,6 @@
       position: relative;
       overflow: hidden;
     }
-
     #home::before {
       content: '';
       position: absolute;
@@ -112,8 +112,8 @@
     .hero-text { position: relative; z-index: 2; }
 
     .hero-eyebrow {
-      font-size: 0.75rem;
-      letter-spacing: 0.3em;
+      font-size: 0.7rem;
+      letter-spacing: 0.35em;
       color: var(--gold);
       text-transform: uppercase;
       margin-bottom: 1.5rem;
@@ -130,16 +130,13 @@
 
     h1 {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(3.5rem, 6vw, 6.5rem);
+      font-size: clamp(3.5rem, 5.5vw, 6.5rem);
       font-weight: 600;
       line-height: 1.05;
       color: var(--ruby-dk);
       margin-bottom: 1.8rem;
     }
-    h1 em {
-      font-style: italic;
-      color: var(--ruby);
-    }
+    h1 em { font-style: italic; color: var(--ruby); }
 
     .hero-desc {
       font-size: 1rem;
@@ -158,19 +155,15 @@
       color: var(--cream);
       text-decoration: none;
       padding: 1rem 2.2rem;
-      font-size: 0.85rem;
-      letter-spacing: 0.12em;
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
       border-radius: 3px;
       transition: background .25s, transform .2s;
     }
     .btn-primary:hover { background: var(--ruby); transform: translateY(-2px); }
 
-    .hero-image {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-    }
+    .hero-image { display: flex; justify-content: center; align-items: center; position: relative; }
     .hero-image img {
       width: min(500px, 90%);
       animation: float 6s ease-in-out infinite;
@@ -197,14 +190,14 @@
     }
     .badge-icon { font-size: 2rem; }
     .badge-text { font-size: 0.75rem; color: var(--muted); line-height: 1.5; }
-    .badge-text strong { display: block; color: var(--ruby-dk); font-size: 0.95rem; }
+    .badge-text strong { display: block; color: var(--ruby-dk); font-size: 0.9rem; }
 
-    /* ── SECTION COMMONS ── */
+    /* ── SECTIONS ── */
     section { padding: 7rem 4rem; }
 
     .section-label {
-      font-size: 0.7rem;
-      letter-spacing: 0.3em;
+      font-size: 0.68rem;
+      letter-spacing: 0.35em;
       color: var(--gold);
       text-transform: uppercase;
       margin-bottom: 1rem;
@@ -227,16 +220,8 @@
 
     /* ── PRODUCTS ── */
     #products { background: var(--dark); }
-
-    #products .section-label { color: var(--gold); }
     #products .section-title { color: var(--cream); }
-    #products .section-sub { color: rgba(253,246,238,0.6); }
-
-    .products-header {
-      text-align: center;
-      margin-bottom: 4rem;
-    }
-
+    .products-header { text-align: center; margin-bottom: 4rem; }
     .products-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -244,7 +229,6 @@
       max-width: 1100px;
       margin: 0 auto;
     }
-
     .product-card {
       background: rgba(255,255,255,0.04);
       border: 1px solid rgba(201,168,76,0.2);
@@ -253,62 +237,44 @@
       text-align: center;
       transition: transform .3s, border-color .3s;
     }
-    .product-card:hover {
-      transform: translateY(-8px);
-      border-color: var(--gold);
-    }
-
+    .product-card:hover { transform: translateY(-8px); border-color: var(--gold); }
     .product-card img {
-      width: 160px;
-      height: 160px;
+      width: 160px; height: 160px;
       object-fit: contain;
       margin-bottom: 1.5rem;
       filter: drop-shadow(0 12px 24px rgba(155,28,28,0.4));
     }
-
     .product-name {
       font-family: 'Cormorant Garamond', serif;
       font-size: 1.6rem;
       color: var(--cream);
       margin-bottom: 0.5rem;
     }
-    .product-desc {
-      font-size: 0.85rem;
-      color: rgba(253,246,238,0.55);
-      line-height: 1.8;
-      font-weight: 300;
-    }
+    .product-desc { font-size: 0.85rem; color: rgba(253,246,238,0.55); line-height: 1.8; font-weight: 300; }
     .product-tag {
       display: inline-block;
       margin-top: 1rem;
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       letter-spacing: 0.15em;
       color: var(--gold);
       border: 1px solid rgba(201,168,76,0.4);
       padding: 0.3rem 0.8rem;
       border-radius: 20px;
+      text-transform: uppercase;
     }
 
-    /* ── FEATURES ── */
+    /* ── STORY ── */
     #story {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 5rem;
       align-items: center;
     }
-
-    .story-image {
-      position: relative;
-    }
-    .story-image img {
-      width: 100%;
-      max-width: 460px;
-      filter: drop-shadow(0 20px 48px rgba(155,28,28,0.2));
-    }
+    .story-image { position: relative; }
+    .story-image img { width: 100%; max-width: 460px; filter: drop-shadow(0 20px 48px rgba(155,28,28,0.2)); }
     .story-stat {
       position: absolute;
-      top: 10%;
-      right: -5%;
+      top: 10%; right: -5%;
       background: var(--ruby-dk);
       color: var(--cream);
       border-radius: 12px;
@@ -316,32 +282,13 @@
       text-align: center;
       box-shadow: 0 12px 32px rgba(100,30,22,0.3);
     }
-    .stat-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2.8rem;
-      color: var(--gold);
-      line-height: 1;
-    }
-    .stat-label {
-      font-size: 0.7rem;
-      letter-spacing: 0.1em;
-      opacity: 0.8;
-      margin-top: 0.3rem;
-    }
+    .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 2.8rem; color: var(--gold); line-height: 1; }
+    .stat-label { font-size: 0.7rem; letter-spacing: 0.1em; opacity: 0.8; margin-top: 0.3rem; text-transform: uppercase; }
 
-    .features-list {
-      list-style: none;
-      margin-top: 2.5rem;
-    }
-    .features-list li {
-      display: flex;
-      gap: 1.2rem;
-      align-items: flex-start;
-      margin-bottom: 1.8rem;
-    }
+    .features-list { list-style: none; margin-top: 2.5rem; }
+    .features-list li { display: flex; gap: 1.2rem; align-items: flex-start; margin-bottom: 1.8rem; }
     .feature-icon {
-      width: 44px;
-      height: 44px;
+      width: 44px; height: 44px;
       background: linear-gradient(135deg, rgba(155,28,28,0.1), rgba(201,168,76,0.1));
       border: 1px solid rgba(155,28,28,0.2);
       border-radius: 10px;
@@ -351,34 +298,15 @@
       font-size: 1.3rem;
       flex-shrink: 0;
     }
-    .feature-body h4 {
-      font-size: 1rem;
-      color: var(--ruby-dk);
-      margin-bottom: 0.3rem;
-    }
-    .feature-body p {
-      font-size: 0.85rem;
-      color: var(--muted);
-      line-height: 1.8;
-      font-weight: 300;
-    }
+    .feature-body h4 { font-size: 1rem; color: var(--ruby-dk); margin-bottom: 0.3rem; font-weight: 500; }
+    .feature-body p { font-size: 0.85rem; color: var(--muted); line-height: 1.8; font-weight: 300; }
 
     /* ── CONTACT ── */
-    #contact {
-      background: linear-gradient(135deg, var(--ruby-dk), #3D0A0A);
-      text-align: center;
-    }
+    #contact { background: linear-gradient(135deg, var(--ruby-dk), #3D0A0A); text-align: center; }
     #contact .section-title { color: var(--cream); }
     #contact .section-sub { color: rgba(253,246,238,0.65); margin: 0 auto 2.5rem; }
 
-    .contact-form {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-      max-width: 520px;
-      margin: 0 auto;
-    }
+    .contact-form { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; max-width: 520px; margin: 0 auto; }
     .contact-form input {
       flex: 1;
       min-width: 220px;
@@ -387,7 +315,7 @@
       background: rgba(255,255,255,0.1);
       border-radius: 3px;
       color: white;
-      font-family: 'Noto Serif KR', serif;
+      font-family: 'Jost', sans-serif;
       font-size: 0.85rem;
       outline: none;
       transition: border-color .25s;
@@ -404,10 +332,11 @@
       border: none;
       cursor: pointer;
       padding: 0.9rem 2rem;
-      font-size: 0.85rem;
-      letter-spacing: 0.1em;
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
       border-radius: 3px;
-      font-family: 'Noto Serif KR', serif;
+      font-family: 'Jost', sans-serif;
       transition: opacity .25s, transform .2s;
     }
     .btn-gold:hover { opacity: 0.88; transform: translateY(-2px); }
@@ -418,32 +347,14 @@
       color: rgba(253,246,238,0.5);
       text-align: center;
       padding: 2.5rem 4rem;
-      font-size: 0.8rem;
-      letter-spacing: 0.08em;
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
     }
     footer a { color: var(--gold); text-decoration: none; }
-
-    /* ── HAMBURGER (Mobile) ── */
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      background: none;
-      border: none;
-      padding: 0;
-    }
-    .hamburger span {
-      display: block;
-      width: 24px; height: 2px;
-      background: var(--ruby-dk);
-      transition: all .3s;
-    }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
       nav { padding: 1rem 1.8rem; }
-
       .nav-links, .lang-btn { display: none; }
       .hamburger { display: flex; }
 
@@ -459,50 +370,35 @@
       .hero-image { order: -1; }
 
       section { padding: 5rem 1.8rem; }
-
-      #story {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-        text-align: center;
-      }
+      #story { grid-template-columns: 1fr; gap: 3rem; text-align: center; }
       .story-image { text-align: center; }
       .story-image img { max-width: 300px; }
       .story-stat { right: 5%; }
       .features-list li { text-align: left; }
     }
-
     @media (max-width: 580px) {
       h1 { font-size: 3rem; }
       .products-grid { grid-template-columns: 1fr; }
     }
 
-    /* ── REVEAL ANIMATIONS ── */
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
   <nav id="navbar">
-    <a href="#home" class="logo">루비<span>키위</span></a>
+    <a href="#home" class="logo">Ruby<span>Kiwi</span></a>
     <ul class="nav-links">
-      <li><a href="#home">홈페이지</a></li>
-      <li><a href="#products">제품</a></li>
-      <li><a href="#story">스토리</a></li>
-      <li><a href="#contact">문의</a></li>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#story">Story</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
     <div class="nav-right">
-      <a href="en.html" class="lang-btn">EN</a>
+      <a href="index.html" class="lang-btn">KR</a>
     </div>
-    <button class="hamburger" id="menuBtn" aria-label="메뉴">
+    <button class="hamburger" id="menuBtn" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
   </nav>
@@ -511,21 +407,21 @@
   <section id="home">
     <div class="hero-text">
       <p class="hero-eyebrow">Premium Ruby Kiwi</p>
-      <h1>자연이<br>빚어낸<br><em>루비</em></h1>
+      <h1>Nature's<br>Finest<br><em>Ruby</em></h1>
       <p class="hero-desc">
-        한 알 한 알 정성스럽게 재배된 루비 키위.<br>
-        진홍빛 과육 속에 담긴 달콤함과 풍부한 영양을<br>
-        지금 경험해 보세요.
+        Grown with care in pristine orchards, our Ruby Kiwi
+        delivers a burst of crimson sweetness and extraordinary
+        nutrition in every single bite.
       </p>
-      <a href="#products" class="btn-primary">제품 보기 →</a>
+      <a href="#products" class="btn-primary">Explore Products →</a>
     </div>
     <div class="hero-image">
-      <img src="assets/kiwi-hero.svg" alt="루비 키위 단면 이미지" />
+      <img src="assets/kiwi-hero.svg" alt="Ruby Kiwi cross-section" />
       <div class="hero-badge">
         <div class="badge-icon">🏆</div>
         <div class="badge-text">
-          <strong>국내 최상급</strong>
-          엄선된 루비 키위
+          <strong>Premium Grade</strong>
+          Hand-selected ruby kiwi
         </div>
       </div>
     </div>
@@ -535,28 +431,28 @@
   <section id="products">
     <div class="products-header">
       <p class="section-label">Our Products</p>
-      <h2 class="section-title">루비 키위 컬렉션</h2>
+      <h2 class="section-title" style="color:var(--cream)">Ruby Kiwi Collection</h2>
       <p class="section-sub" style="color:rgba(253,246,238,0.6); margin:0 auto;">
-        자연 그대로의 맛을 담아낸 프리미엄 루비 키위를 소개합니다.
+        Discover our range of premium ruby kiwi products, crafted with nature and care.
       </p>
     </div>
     <div class="products-grid">
       <div class="product-card reveal">
-        <img src="assets/kiwi-product.svg" alt="루비 키위 싱글팩" />
-        <div class="product-name">싱글 팩</div>
-        <p class="product-desc">한 알씩 소중하게 담은<br>루비 키위 개별 포장</p>
+        <img src="assets/kiwi-product.svg" alt="Single Pack" />
+        <div class="product-name">Single Pack</div>
+        <p class="product-desc">Individually wrapped, perfectly ripe<br>ruby kiwi for daily enjoyment</p>
         <span class="product-tag">Premium</span>
       </div>
       <div class="product-card reveal">
-        <img src="assets/kiwi-hero.svg" alt="루비 키위 선물세트" />
-        <div class="product-name">선물 세트</div>
-        <p class="product-desc">소중한 분께 전하는<br>프리미엄 루비 키위 선물 상자</p>
+        <img src="assets/kiwi-hero.svg" alt="Gift Set" />
+        <div class="product-name">Gift Set</div>
+        <p class="product-desc">Curated premium ruby kiwi<br>presented in an elegant gift box</p>
         <span class="product-tag">Gift Box</span>
       </div>
       <div class="product-card reveal">
-        <img src="assets/kiwi-product.svg" alt="루비 키위 박스" />
-        <div class="product-name">정기 구독 박스</div>
-        <p class="product-desc">매달 신선하게 배송되는<br>루비 키위 구독 서비스</p>
+        <img src="assets/kiwi-product.svg" alt="Subscription Box" />
+        <div class="product-name">Subscribe Box</div>
+        <p class="product-desc">Fresh ruby kiwi delivered<br>to your door every month</p>
         <span class="product-tag">Subscribe</span>
       </div>
     </div>
@@ -565,46 +461,47 @@
   <!-- STORY / FEATURES -->
   <section id="story">
     <div class="story-image">
-      <img src="assets/kiwi-hero.svg" alt="루비 키위 스토리" />
+      <img src="assets/kiwi-hero.svg" alt="Ruby Kiwi story" />
       <div class="story-stat">
         <div class="stat-num">15+</div>
-        <div class="stat-label">재배 연수</div>
+        <div class="stat-label">Years of Craft</div>
       </div>
     </div>
     <div class="story-content reveal">
       <p class="section-label">Our Story</p>
-      <h2 class="section-title">루비 키위의<br>진한 이야기</h2>
+      <h2 class="section-title">The Story of<br>Ruby Kiwi</h2>
       <p class="section-sub">
-        15년간 키위 재배에 헌신해온 장인 정신으로,<br>
-        자연과 기술의 조화를 통해 최상의 루비 키위를 선보입니다.
+        Over 15 years of dedication to kiwi cultivation,
+        blending artisan craftsmanship with nature to deliver
+        the world's finest ruby kiwi experience.
       </p>
       <ul class="features-list">
         <li>
           <div class="feature-icon">🌿</div>
           <div class="feature-body">
-            <h4>100% 유기농 재배</h4>
-            <p>화학 비료 없이 자연 그대로의 방식으로 재배하여 안심하고 드실 수 있습니다.</p>
+            <h4>100% Organic Farming</h4>
+            <p>Grown without chemicals using traditional methods, giving you fruit you can trust completely.</p>
           </div>
         </li>
         <li>
           <div class="feature-icon">💎</div>
           <div class="feature-body">
-            <h4>풍부한 항산화 성분</h4>
-            <p>일반 키위보다 월등히 높은 비타민 C와 항산화 물질이 건강을 지켜드립니다.</p>
+            <h4>Rich in Antioxidants</h4>
+            <p>Significantly higher in Vitamin C and antioxidants than regular kiwi — nature's health shield.</p>
           </div>
         </li>
         <li>
           <div class="feature-icon">🚚</div>
           <div class="feature-body">
-            <h4>당일 수확 · 익일 배송</h4>
-            <p>수확 당일 선별하고 냉장 포장하여 최상의 신선도로 배달해 드립니다.</p>
+            <h4>Harvested & Shipped Same Day</h4>
+            <p>Picked, graded and cold-packed within hours to deliver peak freshness to your doorstep.</p>
           </div>
         </li>
         <li>
           <div class="feature-icon">🌍</div>
           <div class="feature-body">
-            <h4>친환경 패키징</h4>
-            <p>생분해 가능한 소재로 만든 포장재를 사용해 지구를 생각합니다.</p>
+            <h4>Eco-Friendly Packaging</h4>
+            <p>All packaging is made from biodegradable materials — good for you, good for the planet.</p>
           </div>
         </li>
       </ul>
@@ -614,39 +511,34 @@
   <!-- CONTACT -->
   <section id="contact">
     <p class="section-label" style="color:var(--gold)">Contact Us</p>
-    <h2 class="section-title">문의하기</h2>
+    <h2 class="section-title">Get In Touch</h2>
     <p class="section-sub">
-      궁금한 점이 있으시면 이메일을 남겨주세요.<br>
-      빠르게 답변드리겠습니다.
+      Have a question or want to place a bulk order?<br>
+      Leave your email and we'll get back to you promptly.
     </p>
     <div class="contact-form">
-      <input type="email" placeholder="이메일 주소를 입력해주세요" />
-      <button class="btn-gold">문의 보내기 →</button>
+      <input type="email" placeholder="Enter your email address" />
+      <button class="btn-gold">Send Inquiry →</button>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer>
-    <p>© 2025 루비키위 / Ruby Kiwi &nbsp;|&nbsp; <a href="en.html">English</a></p>
+    <p>© 2025 Ruby Kiwi &nbsp;|&nbsp; <a href="index.html">한국어</a></p>
   </footer>
 
   <script>
-    // Navbar scroll effect
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
       navbar.classList.toggle('scrolled', window.scrollY > 40);
     });
 
-    // Reveal on scroll
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) { e.target.classList.add('visible'); }
-      });
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
     }, { threshold: 0.15 });
     reveals.forEach(r => observer.observe(r));
 
-    // Mobile menu (simple toggle)
     document.getElementById('menuBtn').addEventListener('click', () => {
       const links = document.querySelector('.nav-links');
       if (links.style.display === 'flex') {
